@@ -1,4 +1,4 @@
-var BaseUrl = "/lazjedu/";
+var BaseUrl = "/minli/";
 
 var logLevel = "DEBUG";
 

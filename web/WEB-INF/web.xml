@@ -3,10 +3,10 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
          version="3.0">
-    <display-name>lazjedu</display-name>
+    <display-name>minli</display-name>
     <context-param>
         <param-name>webAppRootKey</param-name>
-        <param-value>lazjedu</param-value>
+        <param-value>minli</param-value>
     </context-param>
     <context-param>
         <param-name>contextConfigLocation</param-name>
@@ -35,12 +35,12 @@
     </listener>
     
     <listener>
-        <listener-class>com.lazjedu.frame.listener.FrameContextListener</listener-class>
+        <listener-class>com.cysoa.frame.listener.FrameContextListener</listener-class>
     </listener>
     
     <filter>
         <filter-name>FrameFilter</filter-name>
-        <filter-class>com.lazjedu.frame.filter.FrameFilter</filter-class>
+        <filter-class>com.cysoa.frame.filter.FrameFilter</filter-class>
         <init-param>
             <param-name>encoding</param-name>
             <param-value>utf-8</param-value>
@@ -61,16 +61,11 @@
     </servlet-mapping>
     <resource-ref>
         <description>DB Connection</description>
-        <res-ref-name>jdbc/lazjeduDB</res-ref-name>
+        <res-ref-name>jdbc/minliDB</res-ref-name>
         <res-type>javax.sql.DataSource</res-type>
         <res-auth>Container</res-auth>
     </resource-ref>
     <welcome-file-list>
-        <welcome-file>index.html</welcome-file>
-        <welcome-file>index.htm</welcome-file>
-        <welcome-file>index.jsp</welcome-file>
-        <welcome-file>default.html</welcome-file>
-        <welcome-file>default.htm</welcome-file>
-        <welcome-file>default.jsp</welcome-file>
+        <welcome-file>mlpc/index.do</welcome-file>
     </welcome-file-list>
 </web-app>
