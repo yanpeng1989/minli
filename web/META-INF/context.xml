@@ -6,6 +6,6 @@
         maxActive="100" 
         maxIdle="40" maxWait="12000" name="jdbc/minliDB" 
         password="minli" type="javax.sql.DataSource"
-        url="jdbc:mysql://192.168.1.36:3306/minli?useUnicode=true&amp;characterEncoding=UTF-8&amp;useOldAliasMetadataBehavior=true"
+        url="jdbc:mysql://121.199.58.198:3306/minli?useUnicode=true&amp;characterEncoding=UTF-8&amp;useOldAliasMetadataBehavior=true"
         username="minli"/>
 </Context>
