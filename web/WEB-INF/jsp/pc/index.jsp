@@ -66,7 +66,7 @@
         <!--  快速导航 begin -->
         <div id="simple_link" class="custom-outer-container">
             <div id="logo">
-                
+
             </div>
             <div id="search_container" class="input-group">
                 <input type="text" class="form-control" placeholder="请输入“企业名称”或“职位名称”，上百个好职位等着您哦！" />
@@ -75,8 +75,28 @@
                 </span>
             </div>
             <div id="switch_style">
-                <label><input type="checkbox" />我的民力网</label>
-                <label><input type="checkbox" />手机民力网</label>
+                <div class="dropdown">
+                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+                        我的民力网
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#this">
+                                <img width="120" height="120" src="http://mp.weixin.qq.com/mp/qrcode?scene=10000004&size=102&__biz=MzA3NjgzMzQyMQ==" />
+                            </a></li>
+                    </ul>
+                </div>
+                <div class="dropdown">
+                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+                        手机民力网
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#this">
+                                <img width="120" height="120" src="http://mp.weixin.qq.com/mp/qrcode?scene=10000004&size=102&__biz=MzA3NjgzMzQyMQ==" />
+                            </a></li>
+                    </ul>
+                </div>
             </div>
         </div>
         <!--  快速导航 end -->
@@ -96,24 +116,64 @@
                 </ul>
             </div>
         </div>
-        <div id="navgate_container" class="custom-outer-container">
-            <div class="index-left">
-                <div id="all_job_type">
-                    <div id="all_salary">
-                        综合工资
-                    </div>
-                </div>
-            </div>
-            <div class="index-middle">
-                <div id="ad_first">
-                    
-                </div>
-            </div>
-            <div class="index-right">
-                <div id="login_panel">
-                    
-                </div>
-            </div>
+        <div class="custom-outer-container">
+            <table border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td>
+                        <div id="right_panel">
+                            <div class="index-left">
+                                <div id="all_job_type">
+                                    <div id="all_salary">
+                                        综合工资
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="index-middle">
+                                <div id="ad_first">
+
+                                </div>
+                                <div>
+                                    <div class="middle-ad"></div>
+                                    <div class="middle-ad"></div>
+                                </div>
+                            </div>
+                            <div id="ad_list" class="container" style="float: left">
+                                <div class="row">
+                                    <div class="col-sm-4 ad-div"></div>
+                                    <div class="col-sm-4 ad-div"></div>
+                                    <div class="col-sm-4 ad-div"></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-4 ad-div"></div>
+                                    <div class="col-sm-4 ad-div"></div>
+                                    <div class="col-sm-4 ad-div"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div id="right_panel" class="index-right">
+                            <div id="login_panel">
+                                
+                            </div>
+                            <div id="ml_news">
+                                <div id="ml_news_title">民力快报</div>
+                            </div>
+                            <div style="margin-top: 4px;">
+                                <button id="mbti_test" class="button button-flat-highlight">MBTI 职业性格测试</button>
+                            </div>
+                            <div id="recommand_job">
+                                
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        
+        <!-- yanggh从此 -->
+        <div class="custom-outer-container">
+            
         </div>
     </center>
 </body>
