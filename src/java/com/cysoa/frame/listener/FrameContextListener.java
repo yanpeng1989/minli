@@ -5,6 +5,7 @@
 package com.cysoa.frame.listener;
 
 import com.cysoa.frame.beans.MapFactory;
+import com.cysoa.frame.beans.StTableParamet;
 import com.cysoa.frame.service.FrameServiceImpl;
 import com.cysoa.frame.util.GlobalUtil;
 import java.io.File;
@@ -12,6 +13,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
 import java.util.Properties;
 import java.util.Set;
 import javax.servlet.ServletContextEvent;
@@ -102,6 +104,8 @@ public class FrameContextListener implements ServletContextListener {
         GlobalUtil.frameService.initErrorMsg();
         //加载表结构
         GlobalUtil.frameService.initDBTables();
+        
+        GlobalUtil.frameService.initTablePara();
     }
 
     @Override

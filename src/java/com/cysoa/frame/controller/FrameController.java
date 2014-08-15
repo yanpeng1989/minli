@@ -69,6 +69,7 @@ public class FrameController {
                 for (String code : serviceCodes) {
                     UniversalService.callService(code, in, inHead, out, outHead);
                 }
+                request.setAttribute("out", out);
             } catch (CustomException ex) {
                 log.info("初始化页面服务错误", ex);
                 request.setAttribute("out", ex.getBackData());
@@ -210,7 +211,6 @@ public class FrameController {
 
     @RequestMapping(value = "/_upload/{filename}/{type}", method = RequestMethod.POST)
     public void uploadFile(HttpServletRequest request, HttpServletResponse response, @PathVariable("filename") String fileName, @PathVariable("type") String type) {
-        
     }
 
     @RequestMapping(value = "/auto/page", method = RequestMethod.GET)

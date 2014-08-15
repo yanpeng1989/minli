@@ -66,6 +66,7 @@ public abstract class UniversalService implements Serializable {
         if (!GlobalUtil.allServices.containsKey(code)) {
             throw new CustomException(999996, code); //找不到服务
         }
+        log.info("执行服务：" + code);
         FrameServiceBean serviceBean = GlobalUtil.allServices.get(code);
         UniversalService service = (UniversalService) GlobalUtil.webSpringContext.getBean(serviceBean.getBeanName());
         String checkRes = checkNull(service.checkNull(), in);
