@@ -7,24 +7,114 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
-<html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <!--        <link href="http://cdn.bootcss.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+        <link href="data:text/css;charset=utf-8," data-href="http://cdn.bootcss.com/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" id="bs-theme-stylesheet">-->
+
         <link href="<c:url value='/css/frame/bootstrap.min.css' />" rel="stylesheet" />
-        <link href="<c:url value='/css/frame/bootstrap-theme.min.css' />" rel="stylesheet" />
+        <link href="data:text/css;charset=utf-8," data-href="<c:url value='/css/frame/bootstrap-theme.min.css' />" rel="stylesheet" id="bs-theme-stylesheet" />
         <link href="<c:url value='/css/frame/bootstrap-datetimepicker.min.css' />" rel="stylesheet" />
+        <link href="<c:url value='/css/frame/bootstrap-select.css' />" rel="stylesheet" />
+        <link href="<c:url value='/css/frame/normalize.css' />" rel="stylesheet" />
+        <link href="<c:url value='/css/frame/font-awesome.css' />" rel="stylesheet">
+        <link href="<c:url value='/css/frame/buttons.css' />" rel="stylesheet" />
+        <!--[if lt IE 9]>
+            <script src="http://cdn.bootcss.com/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
         <link href="<c:url value='/css/frame/frame-cyss.css' />" rel="stylesheet" />
+        <link href="<c:url value='/css/pc/index.css' />" rel="stylesheet" />
         <script src="<c:url value='/script/frame/jquery-1.11.1.min.js' />"></script>
         <script src="<c:url value='/script/frame/bootstrap.min.js' />"></script>
         <script src="<c:url value='/script/frame/bootstrap-treeview.js' />"></script>
         <script src="<c:url value='/script/frame/bootstrap-datetimepicker.min.js' />"></script>
         <script src="<c:url value='/script/frame/bootstrap-datetimepicker.zh-CN.js' />"></script>
         <script src="<c:url value='/script/frame/bootstrap3-validation.js' />"></script>
+        <script src="<c:url value='/script/frame/bootstrap-select.js' />"></script>
+        <script src="<c:url value='/script/frame/defaults-zh_CN.js' />"></script>
         <script src="<c:url value='/script/frame/string.min.js' />"></script>
         <script src="<c:url value='/script/frame/frame-manage.js' />"></script>
-        <title>Test JSP Page</title>
+        <script src="<c:url value='/script/pc/index.js' />"></script>
+        <title>民力网</title>
     </head>
     <body>
-        <h1>Hello World1!</h1>
-    </body>
+    <center id="top1">
+        <!--  焦点图 begin -->
+        <div id="top_image"></div>
+        <!--  焦点图 end -->
+
+        <!--  通用列表 begin -->
+        <div id="top_control">
+            <label class="top-control-label">收藏民力网</label>
+            <label class="top-control-label"> | </label>
+            <label class="top-control-label">郑州</label>
+            <button id="change_city" class="btn btn-default top-control-btn">更改</button>
+            <label id="control_right"> hi, 欢迎光临民力网。</label>
+            <button id="top_login" class="btn btn-default top-control-btn">请登录</button>
+            <button id="top_register" class="btn-sm button button-rounded button-flat-highlight">注册</button>
+            <label class="top-control-label">客户服务</label>
+            <label class="top-control-label">网站导航</label>
+        </div>
+        <!--  通用列表 end -->
+        <!--  快速导航 begin -->
+        <div id="simple_link" class="custom-outer-container">
+            <div id="logo">
+                
+            </div>
+            <div id="search_container" class="input-group">
+                <input type="text" class="form-control" placeholder="请输入“企业名称”或“职位名称”，上百个好职位等着您哦！" />
+                <span class="input-group-btn">
+                    <button class="button button-flat-highlight">找工作</button>
+                </span>
+            </div>
+            <div id="switch_style">
+                <label><input type="checkbox" />我的民力网</label>
+                <label><input type="checkbox" />手机民力网</label>
+            </div>
+        </div>
+        <!--  快速导航 end -->
+        <div id="navgate_container" class="custom-outer-container">
+            <div id="all_jobs_title" class="index-left">
+                全部工作分类
+            </div>
+            <div id="navgate_bar">
+                <ul id="navgate_ul">
+                    <li class="navgate_item navgate_item_active">首页</li>
+                    <li class="navgate_item">找工作</li>
+                    <li class="navgate_item">学技术</li>
+                    <li class="navgate_item">人才库</li>
+                    <li class="navgate_item">新闻中心</li>
+                    <li class="navgate_item">权益保障</li>
+                    <li class="navgate_item">民力职介中心</li>
+                </ul>
+            </div>
+        </div>
+        <div id="navgate_container" class="custom-outer-container">
+            <div class="index-left">
+                <div id="all_job_type">
+                    <div id="all_salary">
+                        综合工资
+                    </div>
+                </div>
+            </div>
+            <div class="index-middle">
+                <div id="ad_first">
+                    
+                </div>
+            </div>
+            <div class="index-right">
+                <div id="login_panel">
+                    
+                </div>
+            </div>
+        </div>
+    </center>
+</body>
 </html>
