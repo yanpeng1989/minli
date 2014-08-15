@@ -43,7 +43,6 @@ public class FrameController {
         return "/wx/index";
     }
 
-
     @RequestMapping(value = "/mlpc/{page}", method = RequestMethod.GET)
     public String getPage(HttpServletRequest request, HttpServletResponse response, @PathVariable("page") String page) {
 //        HttpSession session = request.getSession();
@@ -207,6 +206,11 @@ public class FrameController {
                 writer.print("{\"head\":{\"res_code\": \"100003\",\"res_desc\":\"包解析错误\"}}");
             }
         }
+    }
+
+    @RequestMapping(value = "/_upload/{filename}/{type}", method = RequestMethod.POST)
+    public void uploadFile(HttpServletRequest request, HttpServletResponse response, @PathVariable("filename") String fileName, @PathVariable("type") String type) {
+        
     }
 
     @RequestMapping(value = "/auto/page", method = RequestMethod.GET)

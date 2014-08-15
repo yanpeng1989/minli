@@ -4,13 +4,28 @@ var logLevel = "DEBUG";
 
 var inputElement = "input[type='text'],input[type='password'],textarea";
 
+var _uniqueTag = 0;
+
 var scriptUrl = (String)(window.location);
 scriptUrl = scriptUrl.substr(0, scriptUrl.indexOf(".do") + 1) + "js";
 scriptUrl = scriptUrl.replace(BaseUrl, BaseUrl + "script/");
 //if (scriptUrl.indexOf("auto/page.do") != -1) {
 //    document.write("<script src='" + scriptUrl + "'></script>");
 //}
-document.write("<script src='" + scriptUrl + "'></script>");
+$.getScript(scriptUrl);
+
+function getUniqueCode() {
+    if(_uniqueTag == 99) {
+        _uniqueTag = 0;
+    } else {
+        _uniqueTag++;
+    }
+    var code = new Date().getTime();
+    code += _uniqueTag;
+    return code;
+}
+
+
 $(function() {
     setTimeout(function() {
         $("form").submit(function() {
