@@ -36,6 +36,6 @@
     <script src="<c:url value='/script/frame/defaults-zh_CN.js' />"></script>
     <script src="<c:url value='/script/frame/string.min.js' />"></script>
     <script src="<c:url value='/script/frame/frame-manage.js' />"></script>
-    <script src="<c:url value='/script/pc/index.js' />"></script>
+    
     <title>民力网</title>
 </head>
