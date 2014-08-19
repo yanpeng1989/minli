@@ -9,17 +9,18 @@ import com.cysoa.frame.beans.FrameServiceBean;
 import com.cysoa.frame.beans.StTableParamet;
 import com.cysoa.frame.service.impl.FrameService;
 import com.cysoa.frame.util.GlobalUtil;
+import com.cyss.emay.util.Client;
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import org.apache.log4j.Logger;
-import org.springframework.stereotype.Service;
 
 /**
  *
  * @author cyss210
  */
-@Service
+@org.springframework.stereotype.Service
 public class FrameServiceImpl extends UniversalService implements FrameService {
 
     private static Logger log = Logger.getLogger(FrameServiceImpl.class);
@@ -107,5 +108,71 @@ public class FrameServiceImpl extends UniversalService implements FrameService {
 
     @Override
     public void execute(Map<String, Object> in, Map<String, Object> inHead, Map<String, Object> out, Map<String, Object> outHead) {
+    }
+
+    @Override
+    public void initSMS() {
+//        Client client = EmayFactory.getEmayClient();
+//        int code = client.registEx(GlobalUtil.getSysConfig("sms_pwd"));
+//        if (code != 0) {
+//            log.error("调用注册序列号接口异常,异常码：" + code);
+//        } else {
+//            log.info("调用注册序列号接口成功");
+//        }
+
+        try {
+            int code = GlobalUtil.getEmayClient().registEx(GlobalUtil.getSysConfig("sms_pwd"));
+            if (code != 0) {
+                log.error("调用注册序列号接口异常,异常码：" + code);
+            } else {
+                log.info("调用注册序列号接口成功");
+            }
+        } catch (Exception ex) {
+            log.error("调用注册序列号接口异常", ex);
+        }
+    }
+
+    @Override
+    public void initSMSCompany() {
+//        SDKService service = new SDKService();
+//        SDKClient client = service.getSDKService();
+//        int code = client.registDetailInfo(GlobalUtil.getSysConfig("sms_serial"),
+//                GlobalUtil.getSysConfig("sms_key"),
+//                GlobalUtil.getSysConfig("sms_ename"),
+//                GlobalUtil.getSysConfig("sms_linkman"),
+//                GlobalUtil.getSysConfig("sms_phone_num"),
+//                GlobalUtil.getSysConfig("sms_mobile"),
+//                GlobalUtil.getSysConfig("sms_email"),
+//                GlobalUtil.getSysConfig("sms_fax"),
+//                GlobalUtil.getSysConfig("sms_address"),
+//                GlobalUtil.getSysConfig("sms_postcode"));
+//        Client client = EmayFactory.getEmayClient();
+//        int code = client.registDetailInfo(
+//                GlobalUtil.getSysConfig("sms_ename"),
+//                GlobalUtil.getSysConfig("sms_linkman"),
+//                GlobalUtil.getSysConfig("sms_phone_num"),
+//                GlobalUtil.getSysConfig("sms_mobile"),
+//                GlobalUtil.getSysConfig("sms_email"),
+//                GlobalUtil.getSysConfig("sms_fax"),
+//                GlobalUtil.getSysConfig("sms_address"),
+//                GlobalUtil.getSysConfig("sms_postcode"));
+        Client client = GlobalUtil.getEmayClient();
+        try {
+            int code = client.registDetailInfo(GlobalUtil.getSysConfig("sms_ename"),
+                    GlobalUtil.getSysConfig("sms_linkman"),
+                    GlobalUtil.getSysConfig("sms_phone_num"),
+                    GlobalUtil.getSysConfig("sms_mobile"),
+                    GlobalUtil.getSysConfig("sms_email"),
+                    GlobalUtil.getSysConfig("sms_fax"),
+                    GlobalUtil.getSysConfig("sms_address"),
+                    GlobalUtil.getSysConfig("sms_postcode"));
+            if (code != 0) {
+                log.error("调用注册公司接口异常,异常码：" + code);
+            } else {
+                log.info("调用注册公司接口成功");
+            }
+        } catch (RemoteException ex) {
+            log.error("调用注册公司接口异常", ex);
+        }
     }
 }

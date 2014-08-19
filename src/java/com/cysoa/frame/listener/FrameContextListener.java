@@ -5,7 +5,6 @@
 package com.cysoa.frame.listener;
 
 import com.cysoa.frame.beans.MapFactory;
-import com.cysoa.frame.beans.StTableParamet;
 import com.cysoa.frame.service.FrameServiceImpl;
 import com.cysoa.frame.util.GlobalUtil;
 import java.io.File;
@@ -13,7 +12,6 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.List;
 import java.util.Properties;
 import java.util.Set;
 import javax.servlet.ServletContextEvent;
@@ -52,7 +50,7 @@ public class FrameContextListener implements ServletContextListener {
             String exMsg = "加载system.properties失败";
             log.error(exMsg, ex);
         }
-
+        
         if (GlobalUtil.sysConfig.containsKey("db_type")) {
             GlobalUtil.DB_TYPE = GlobalUtil.sysConfig.get("db_type");
         }
@@ -106,6 +104,11 @@ public class FrameContextListener implements ServletContextListener {
         GlobalUtil.frameService.initDBTables();
         
         GlobalUtil.frameService.initTablePara();
+        
+        if("0".equals(GlobalUtil.getSysConfig("sms_init_flag"))) {
+            GlobalUtil.frameService.initSMS();
+            GlobalUtil.frameService.initSMSCompany();
+        }
     }
 
     @Override
@@ -148,7 +151,6 @@ public class FrameContextListener implements ServletContextListener {
                         }
                     }
                 }
-
             }
         }
     }
