@@ -64,36 +64,28 @@
                                 <div id="ad_first">
 
                                 </div>
-                                <div>
-                                    <div class="middle-ad">
-                                        <img src="http://fakeimg.pl/273x120/ff5500,128/000,255" />
-                                    </div>
-                                    <div class="middle-ad">
-                                        <img src="http://fakeimg.pl/273x120/fff000,128/000,255" />
-                                    </div>
-                                </div>
                             </div>
                             <div id="ad_list" class="container" style="float: left">
                                 <div class="row">
                                     <div class="col-sm-4 ad-div">
-                                        <img src="http://fakeimg.pl/253x159/ff5500,128/000,255" />
+                                        <img src="http://fakeimg.pl/253x190/ff5500,128/000,255" />
                                     </div>
                                     <div class="col-sm-4 ad-div">
-                                        <img src="http://fakeimg.pl/253x159/ff5500,128/000,255" />
+                                        <img src="http://fakeimg.pl/253x190/ff5500,128/000,255" />
                                     </div>
                                     <div class="col-sm-4 ad-div">
-                                        <img src="http://fakeimg.pl/253x159/ff5500,128/000,255" />
+                                        <img src="http://fakeimg.pl/253x190/ff5500,128/000,255" />
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-4 ad-div">
-                                        <img src="http://fakeimg.pl/253x159/ff5500,128/000,255" />
+                                        <img src="http://fakeimg.pl/253x190/ff5500,128/000,255" />
                                     </div>
                                     <div class="col-sm-4 ad-div">
-                                        <img src="http://fakeimg.pl/253x159/ff5500,128/000,255" />
+                                        <img src="http://fakeimg.pl/253x190/ff5500,128/000,255" />
                                     </div>
                                     <div class="col-sm-4 ad-div">
-                                        <img src="http://fakeimg.pl/253x159/ff5500,128/000,255" />
+                                        <img src="http://fakeimg.pl/253x190/ff5500,128/000,255" />
                                     </div>
                                 </div>
                             </div>

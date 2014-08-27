@@ -1,7 +1,7 @@
 var adList = [
-    "http://fakeimg.pl/550x180/ff0000,128/000,255",
-    "http://fakeimg.pl/550x180/ff00ff,128/000,255",
-    "http://fakeimg.pl/550x180/00ff00,128/000,255"
+    "http://fakeimg.pl/550x300/ff0000,128/000,255",
+    "http://fakeimg.pl/550x300/ff00ff,128/000,255",
+    "http://fakeimg.pl/550x300/00ff00,128/000,255"
 ];
 var adIndex = 0;
 var adInterval;
