@@ -20,7 +20,7 @@
             <table border="0" cellspacing="0" cellpadding="0">
                 <tr>
                     <td>
-                        <div id="right_panel">
+                        <div id="left_panel">
                             <div class="index-left">
                                 <div id="all_job_type">
                                     <div id="all_salary" class="all-job-type">

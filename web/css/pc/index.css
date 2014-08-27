@@ -155,11 +155,11 @@ body {
 }
 
 #left-panel {
-    height: 625px;
+    height: 685px;
 }
 
 #right_panel {
-    height: 625px;
+    height: 685px;
 }
 
 #login_panel {
@@ -241,7 +241,7 @@ body {
 
 #recommand_job {
     width: 100%;
-    height: 201px;
+    height: 231px;
     border: 1px #d2d2d2 solid;
     margin-top: 4px;
 }
