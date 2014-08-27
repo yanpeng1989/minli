@@ -58,110 +58,8 @@ body {
     z-index: 10;
 }
 
-#top_image {
-    width: 100%;
-    background-color: #F6F7FB;
-    height: 80px;
-    border: 1px #d2d2d2 solid;
-}
-
-#top_control {
-    width: 100%;
-    background-color: #F6F7FB;
-    height: 26px;
-    line-height: 26px;
-    border: 1px #d2d2d2 solid;
-    text-align: left;
-    display: inline-block;
-}
-
-#top_control .top-control-label{
-    text-decoration: none;
-    color: #666;
-    margin-left: 22px;
-    font-size: 13px;
-    vertical-align: middle;
-    font-weight: 200;
-    display: inline-block;
-    cursor: pointer;
-}
-
-#top_control label:first-child {
-    margin-left: 160px;
-}
-
-.top-control-orange-btn {
-    height: 21px;
-    text-align: center;
-    line-height: 8px;
-    font-size: 13px;
-    margin-bottom: 8px;
-    margin-left: 6px;
-    color: #fff;
-}
-
-#top_register {
-    height: 20px;
-    text-align: center;
-    line-height: 8px;
-    font-size: 13px;
-    margin-bottom: 9px;
-    margin-left: 6px;
-}
-
-.top-control-btn {
-    height: 21px;
-    text-align: center;
-    line-height: 8px;
-    font-size: 13px;
-    margin-bottom: 8px;
-    margin-left: 6px;
-    color: #666;
-}
-
-#control_right{
-    margin-left: 230px;
-    text-decoration: none;
-    color: #666;
-    font-size: 13px;
-    font-weight: 200;
-    height: 26px;
-    line-height: 26px;
-    vertical-align: middle;
-}
-
-#simple_link {
-    height: 120px;
-}
-
-#logo {
-    width: 200px;
-    height: 90px;
-    background-color: #FF5533;
-    margin-top: 16px;
-    float: left;
-}
-
-#search_container {
-    margin-top: 30px;
-    margin-left: 50px;
-    width: 490px;
-    float: left;
-}
-
-#switch_style {
-    margin-top: 36px;
-    float: left;
-    margin-left: 30px;
-}
-
-#switch_style div{
-    margin-left: 12px;
-    display: inline-block;
-}
-
-#navgate_container {
-    height: 40px;
+#navgate_bar {
+    width: 810px;
 }
 
 #all_jobs_title {
@@ -171,37 +69,8 @@ body {
     float: left;
     margin-top: 4px;
     width: 210px;
-}
-
-#navgate_bar {
-    margin-left: 4px;
-    width: 810px;
-    border-bottom: 3px #FF5533 solid;
-    float: left;
-    height: 34px;
-}
-
-#navgate_ul {
-    list-style: none;
-    width: 100%;
-    height: 32px;
-    margin-bottom: 0px;
-}
-
-.navgate_item {
-    width: 90px;
-    margin-left: 8px;
-    height: 32px;
-    line-height: 32px;
-    float: left;
-    font-size: 13px;
-    margin-bottom: 0px;
-    cursor: pointer;
-}
-
-.navgate_item_active { 
-    background-color: #FF5533;
-    color: white;
+    min-width: 210px;
+    opacity: 1;
 }
 
 #all_job_type {
@@ -488,58 +357,6 @@ body {
     height: 220px;
     margin-left: 5px;
     float: left;
-}
-
-#index_foot {
-    height: 380px;
-    border: 1px #dfdfdf solid;
-    margin-top: 3px;
-}
-
-#foot_table{
-    width: 100%;
-}
-
-#foot_sina_icon {
-    background: url(http://img.t.sinajs.cn/t35/appstyle/opent/images/app/btn_trans.gif?id=201104131414) 0 no-repeat;
-    background-position: 0px -56px;
-    width: 18px;
-    height: 18px;
-}
-
-#foot_table tr td {
-    text-align: center;
-    padding-top: 20px;
-}
-
-#foot_table tr td div ul{
-    list-style: none;
-    text-align: left;
-}
-
-#foot_table tr td div ul li {
-    margin-top: 5px;
-
-}
-
-#foot_table tr td div ul li a {
-    color: #666;
-}
-
-#foot_table table tr td{
-    padding: 0px;
-}
-
-.foot_table_div {
-    height: 200px;
-}
-
-#foot_friend_link {
-    width: 900px;
-}
-
-#foot_friend_link a {
-    margin-left: 10px;
 }
 
 #right_quick_nav {

@@ -1,0 +1,56 @@
+#index_foot {
+    height: 380px;
+    border: 1px #dfdfdf solid;
+    margin-top: 3px;
+}
+
+.custom-outer-container {
+    width: 1024px;
+}
+
+#foot_table{
+    width: 100%;
+}
+
+#foot_sina_icon {
+    background: url(http://img.t.sinajs.cn/t35/appstyle/opent/images/app/btn_trans.gif?id=201104131414) 0 no-repeat;
+    background-position: 0px -56px;
+    width: 18px;
+    height: 18px;
+}
+
+#foot_table tr td {
+    text-align: center;
+    padding-top: 20px;
+}
+
+#foot_table tr td div ul{
+    list-style: none;
+    text-align: left;
+}
+
+#foot_table tr td div ul li {
+    margin-top: 5px;
+
+}
+
+#foot_table tr td div ul li a {
+    color: #666;
+}
+
+#foot_table table tr td{
+    padding: 0px;
+}
+
+.foot_table_div {
+    height: 200px;
+}
+
+#foot_friend_link {
+    width: 900px;
+}
+
+#foot_friend_link a {
+    margin-left: 10px;
+}
+

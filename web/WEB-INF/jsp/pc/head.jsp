@@ -25,6 +25,8 @@
     <![endif]-->
 
     <link href="<c:url value='/css/frame/frame-cyss.css' />" rel="stylesheet" />
+    <link href="<c:url value='/css/pc/top.css' />" rel="stylesheet" />
+    <link href="<c:url value='/css/pc/foot.css' />" rel="stylesheet" />
     <script src="<c:url value='/script/frame/jquery-1.11.1.min.js' />"></script>
     <script src="<c:url value='/script/frame/bootstrap.min.js' />"></script>
     <script src="<c:url value='/script/frame/bootstrap-treeview.js' />"></script>
@@ -34,6 +36,7 @@
     <script src="<c:url value='/script/frame/bootstrap-select.js' />"></script>
     <script src="<c:url value='/script/frame/defaults-zh_CN.js' />"></script>
     <script src="<c:url value='/script/frame/string.min.js' />"></script>
+    <script src="<c:url value='/script/frame/ajaxfileupload.js' />"></script>
     <script src="<c:url value='/script/frame/frame-manage.js' />"></script>
     
     <title>民力网</title>
