@@ -1,0 +1,17 @@
+/* 
+    Document   : flow_link
+    Created on : 2014-8-27, 16:54:35
+    Author     : cyss210
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+#right_quick_nav {
+    position: fixed;
+    top: 400px;
+    width: 100px;
+    height: 300px;
+    border: 1px #aaa solid;
+    right: 10px;
+    z-index: 9;
+}

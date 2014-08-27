@@ -216,9 +216,7 @@
         </div>
         <jsp:include page="foot.jsp" />
     </center>
-    <div id="right_quick_nav">
-
-    </div>
+        <jsp:include page="flow_link.jsp" />
 </body>
 </html>
 <!-- 在此引用相应页面的js -->
