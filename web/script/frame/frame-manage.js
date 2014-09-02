@@ -6,6 +6,19 @@ var inputElement = "input[type='text'],input[type='password'],textarea";
 
 var _uniqueTag = 0;
 
+//是否限制表单提交
+var isLimitForm = false;
+
+var userAgent = navigator.userAgent.toLowerCase();
+// Figure out what browser is being used 
+jQuery.browser = {
+    version: (userAgent.match(/.+(?:rv|it|ra|ie)[\/: ]([\d.]+)/) || [])[1],
+    safari: /webkit/.test(userAgent),
+    opera: /opera/.test(userAgent),
+    msie: /msie/.test(userAgent) && !/opera/.test(userAgent),
+    mozilla: /mozilla/.test(userAgent) && !/(compatible|webkit)/.test(userAgent)
+};
+
 var scriptUrl = (String)(window.location);
 scriptUrl = scriptUrl.substr(0, scriptUrl.indexOf(".do") + 1) + "js";
 scriptUrl = scriptUrl.replace(BaseUrl, BaseUrl + "script/");
@@ -15,7 +28,7 @@ scriptUrl = scriptUrl.replace(BaseUrl, BaseUrl + "script/");
 $.getScript(scriptUrl);
 
 function getUniqueCode() {
-    if(_uniqueTag == 99) {
+    if (_uniqueTag == 99) {
         _uniqueTag = 0;
     } else {
         _uniqueTag++;
@@ -92,10 +105,10 @@ function uploadImage(id, opts) {
         "channel": "P"
     };
     if (opts) {
-        if(opts["uploadpath"]) {
+        if (opts["uploadpath"]) {
             options["uploadpath"] = opts["uploadpath"];
         }
-        if(opts["service_code"]) {
+        if (opts["service_code"]) {
             options["custom_code"] = opts["service_code"];
         }
     } else {
@@ -127,11 +140,122 @@ function uploadImage(id, opts) {
     });
 }
 
+function showMsg(type, opts) {
+    var modal = $("#_frame_modal_");
+    if (opts) {
+        if (opts["title"]) {
+            $(".modal-title", modal).html(opts["title"]);
+        }
+        if (opts["content"]) {
+            $("label", modal).html(opts["content"]);
+        }
+//        _frame_makesure_modal_
+        if (opts["okCall"]) {
+            $("#_frame_makesure_modal_").unbind("click");
+            $("#_frame_makesure_modal_").bind("click", function() {
+                if (opts["okCall"])
+                    opts["okCall"]();
+                modal.modal("toggle");
+            });
+
+        }
+    }
+    if (type === "confirm") {
+        modal.modal("toggle");
+    }
+}
+
+function clearForm(id) {
+    $("input,textarea", $(id)).each(function() {
+        $(this).val("");
+    });
+}
+
+function fillData(id, obj) {
+    for (var key in obj) {
+        var _key = key.toLowerCase();
+        $("input[name='" + _key + "'], #" + _key + ",textarea[name='" + _key + "'],select[name='" + _key + "']", $(id)).val(obj[key]);
+    }
+}
+
+/**
+ * 
+ * @param {type} serviceCode 服务码
+ * @param {type} toPage 跳转到页面
+ * @param {type} args 参数,参考AjaxOpts
+ * @returns {undefined}
+ */
+function onlyCutPage(serviceCode, toPage, args) {
+    var o = new AjaxOpts(serviceCode);
+    for (var k in args) {
+        if (typeof(args[k]) === "string")
+            o.put(k, args[k]);
+    }
+    if (args["sus"])
+        o.sus = args["sus"];
+    if (args["fail"])
+        o.fal = args["fal"];
+    o.put("_to_page", toPage);
+    $.ajax(o);
+}
 
 $(function() {
+    //判断浏览器
+    if ($.browser.msie && (Number)($.browser.version) < 10) {
+        var input = $(".input-hint-text");
+        input.addClass("input-hint-text-ie");
+        input.each(function() {
+            var hint = $(this).attr("placeholder");
+            var div = $("<div/>").addClass("input-hint-text-div").css({
+                height: input.height() + "px"
+            });
+            $(this).wrap(div);
+            $(this).after($("<label/>").addClass("input-hint-text-label").html(hint));
+            $(this).focus(function() {
+                $(this).next().hide();
+            });
+            $(this).blur(function() {
+                if ($(this).val() !== "") {
+                    $(this).next().hide();
+                } else {
+                    $(this).next().show();
+                }
+            });
+        });
+    }
+    //添加系统模态框，用于showMsg
+    var modalDiv = $("<div/>").attr({
+        "id": "_frame_modal_",
+        "tabindex": "99",
+        "role": "dialog"
+    }).appendTo($("body")).addClass("modal fade");
+    var mDiv = $("<div/>").addClass("modal-content").appendTo($("<div/>").addClass("modal-dialog modal-sm").appendTo(modalDiv));
+    var mHeader = $("<div/>").addClass("modal-header").appendTo(mDiv);
+    $("<button/>").addClass("close").attr("data-dismiss", "modal").append($("<span/>").html("close").addClass("sr-only")).append($("<span/>").html("x").attr("aria-hidden", "true")).appendTo(mHeader);
+    $("<h4/>").addClass("modal-title").html("提示").appendTo(mHeader);
+    $("<label/>").css({
+        "text-align": "center",
+        "margin-top": "8px",
+        "width": "100%"
+    }).appendTo(mDiv);
+    var mFooter = $("<div/>").addClass("modal-footer").appendTo(mDiv);
+    $("<button/>").attr({
+        "type": "button",
+        "data-dismiss": "modal",
+        "id": "_frame_close_modal_"
+    }).addClass("btn btn-default").html("关闭").appendTo(mFooter);
+    $("<button/>").attr({
+        "type": "button",
+        "id": "_frame_makesure_modal_"
+    }).addClass("btn btn-primary").html("确定").appendTo(mFooter);
+    //验证码点击
+    $("._validate_code").click(function() {
+        var src = $(this).attr("src");
+        $(this).attr("src", src + "?temp_id=" + getUniqueCode());
+    });
     setTimeout(function() {
         $("form").submit(function() {
-            return false;
+            return !isLimitForm;
         });
         $(inputElement).keydown(function(e) {
             if (e.keyCode === 13) {
@@ -156,9 +280,18 @@ $(function() {
             language: "zh-CN"
         }, 300);
     });
-//    .attr({
-//        "readonly": "readonly"
-//    });
+
+    $("._cut_page_index").click(function() {
+        var toPage = $(this).attr("topage");
+        var form = $(this).parents("form");
+        form.attr("method", "post");
+        $("<input/>").attr({
+            "type": "hidden",
+            "value": toPage,
+            "name": "_to_page"
+        }).appendTo(form);
+        form.submit();
+    });
 });
 
 var CyTable = function() {
@@ -305,6 +438,7 @@ var CyTable = function() {
         this.options["_to_page"] = toPage;
         this.init(this.table, this.options);
     };
+    return this;
 };
 
 $.fn.extend({
@@ -322,6 +456,7 @@ $.fn.extend({
                 cytable.init(table, method);
             }
         });
+        return this;
     }
 });
 function log(msg) {
@@ -347,7 +482,8 @@ function showAlertMsg(msg, type) {
         "width": "90%",
         "top": "6%",
         "left": "5%",
-        "position": "fixed"
+        "position": "fixed",
+        "z-index": "999999"
     };
     if (count !== 0) {
         var child = $(".cy_alert:last-child");
@@ -373,12 +509,11 @@ function showAlertMsg(msg, type) {
     }
 }
 
-
 var AjaxOpts = function(obj) {
     this.data = {};
     this.url = BaseUrl + "ajax.do";
     this.isLoading = true;
-    this.isAlert = false;
+    this.isAlert = true;
     this.type = "post";
     this.dataType = "json";
     this.contentType = "application/x-www-form-urlencoded; charset=utf-8";
@@ -422,6 +557,8 @@ var AjaxOpts = function(obj) {
         if ("000000" === head["res_code"]) {
             this.sus(json);
         } else {
+            if (this.isAlert)
+                showAlertMsg(head["res_desc"], "error");
             this.fal(head["res_code"], head["res_desc"]);
         }
     };
@@ -434,6 +571,8 @@ var AjaxOpts = function(obj) {
             msg = e.message;
         }
         log(msg);
+        if (this.isAlert)
+            showAlertMsg(head["res_desc"], "error");
         this.fal(code, msg);
     };
 
@@ -455,7 +594,7 @@ var AjaxOpts = function(obj) {
     };
 
     this.fal = function(code, msg) {
-        showAlertMsg(msg, "error");
+
     };
 
     return this;
